@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
+import AddForm from '../add-form/add-form'
 
 const TopicPage = (props) => {
-  // const {children, handleClick, isLoggedIn} = props
-
   return (
     <div>
+      <AddForm />
       <h1>HI</h1>
     </div>
   )

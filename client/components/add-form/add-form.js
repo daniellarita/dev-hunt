@@ -2,25 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
-import './style.css'
 
-class GridMenu extends React.Component {
-  state = {
-    topics: ['JavaScript','Ruby','Java','DevOps','SQL','Python']
-  }
+class AddForm extends React.Component {
+
   render () {
     return (
-      <div>
-        {
-          this.state.topics.map((topic, i) => {
-            return (
-              <div key={i}>
-                <Link to={`/${topic}`}>{topic}</Link>
-              </div>
-            )
-          })
-        }
-      </div>
+      <form>
+        <label>
+          Resource:
+          <input type="text" name="resource" />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
     )
   }
 }
@@ -43,7 +36,7 @@ class GridMenu extends React.Component {
 
 // The `withRouter` wrapper makes sure that updates are not blocked
 // when the url changes
-export default withRouter(connect()(GridMenu))
+export default withRouter(connect()(AddForm))
 
 // GridMenu.propTypes = {
 //   children: PropTypes.object,
