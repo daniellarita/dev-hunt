@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../store'
+import GridMenu from './grid-menu/grid-menu'
 
 /**
  * COMPONENT
@@ -15,7 +16,7 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1>BOILERMAKER</h1>
+      <h1>DevHunt</h1>
       <nav>
         {
           isLoggedIn
@@ -37,9 +38,6 @@ const Main = (props) => {
   )
 }
 
-/**
- * CONTAINER
- */
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id
@@ -58,9 +56,6 @@ const mapDispatch = (dispatch) => {
 // when the url changes
 export default withRouter(connect(mapState, mapDispatch)(Main))
 
-/**
- * PROP TYPES
- */
 Main.propTypes = {
   children: PropTypes.object,
   handleClick: PropTypes.func.isRequired,

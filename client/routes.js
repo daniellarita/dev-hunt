@@ -4,11 +4,9 @@ import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
 import {Main, Login, Signup, UserHome} from './components'
+import TopicPage from './components/topic-page/topic-page'
 import {me} from './store'
 
-/**
- * COMPONENT
- */
 class Routes extends Component {
   componentDidMount () {
     this.props.loadInitialData()
@@ -34,6 +32,7 @@ class Routes extends Component {
             {/* Displays our Login component as a fallback */}
             <Route component={Login} />
           </Switch>
+          <Route path="/:topicName" component={TopicPage} />
         </Main>
       </Router>
     )
