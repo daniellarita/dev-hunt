@@ -1,7 +1,7 @@
 {
   "name": "tutorialhunt",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Hacker News or Reddit for Coding Tutorials",
   "engines": {
     "node": ">= 7.0.0"
   },
