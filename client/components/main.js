@@ -31,6 +31,7 @@ const Main = (props) => {
               <Link to="/signup">Sign Up</Link>
             </div>
         }
+        <Link to="/add-resource">Add Resource</Link>
       </nav>
       <hr />
       {children}

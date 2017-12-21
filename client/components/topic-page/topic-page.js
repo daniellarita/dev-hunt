@@ -8,7 +8,6 @@ const TopicPage = (props) => {
   return (
     <div>
       <AddForm />
-      <h1>HI</h1>
     </div>
   )
 }

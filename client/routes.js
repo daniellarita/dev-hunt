@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import history from './history'
 import {Main, Login, Signup, UserHome} from './components'
 import TopicPage from './components/topic-page/topic-page'
+import AddForm from './components/add-form/add-form'
 import {me} from './store'
 
 class Routes extends Component {
@@ -17,23 +18,26 @@ class Routes extends Component {
 
     return (
       <Router history={history}>
-        <Main>
-          <Switch>
-            {/* Routes placed here are available to all visitors */}
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            {
-              isLoggedIn &&
+        <div>
+          <Main>
+            <Switch>
+              {/* Routes placed here are available to all visitors */}
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              {
+                isLoggedIn &&
                 <Switch>
                   {/* Routes placed here are only available after logging in */}
                   <Route path="/home" component={UserHome} />
                 </Switch>
-            }
-            {/* Displays our Login component as a fallback */}
-            <Route component={Login} />
-          </Switch>
+              }
+              {/* Displays our Login component as a fallback */}
+              <Route component={Login} />
+            </Switch>
+          </Main>
           <Route path="/:topicName" component={TopicPage} />
-        </Main>
+          <Route path="/add-resource" component={AddForm} />
+        </div>
       </Router>
     )
   }
