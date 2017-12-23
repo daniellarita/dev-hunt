@@ -72,3 +72,12 @@ router.put('/:uuid', (req, res, next) => {
 })
 
 // DELETE
+router.delete('/:uuid', (req, res, next) => {
+  Post.destroy({
+    where: {
+      uuid: req.params.uuid
+    }
+  })
+  .then(destroyed => res.json(destroyed))
+  .catch(next);
+})
