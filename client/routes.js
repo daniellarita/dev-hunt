@@ -4,8 +4,7 @@ import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
 import {Main, Login, Signup, UserHome} from './components'
-import TopicPage from './components/topic-page/topic-page'
-import AddForm from './components/add-form/add-form'
+import CreatePost from './components/Post/CreatePost'
 import {me} from './store'
 
 class Routes extends Component {
@@ -35,8 +34,7 @@ class Routes extends Component {
               <Route component={Login} />
             </Switch>
           </Main>
-          <Route path="/:topicName" component={TopicPage} />
-          <Route path="/add-resource" component={AddForm} />
+          <Route path="/add-resource" component={CreatePost} />
         </div>
       </Router>
     )
@@ -64,9 +62,6 @@ const mapDispatch = (dispatch) => {
 
 export default connect(mapState, mapDispatch)(Routes)
 
-/**
- * PROP TYPES
- */
 Routes.propTypes = {
   loadInitialData: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
