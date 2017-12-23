@@ -9,7 +9,6 @@ export const UserHome = (props) => {
   return (
     <div>
       <h4>Welcome, {email}</h4>
-      <GridMenu />
     </div>
   )
 }

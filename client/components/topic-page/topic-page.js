@@ -7,7 +7,7 @@ import AddForm from '../add-form/add-form'
 const TopicPage = (props) => {
   return (
     <div>
-      <AddForm />
+      HI
     </div>
   )
 }
