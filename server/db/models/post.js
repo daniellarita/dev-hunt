@@ -13,6 +13,12 @@ const Post = db.define('post', {
   note: {
     type: Sequelize.TEXT
   },
+  tag: {
+    type: Sequelize.ARRAY(Sequelize.STRING)
+  },
+  upvotes: {
+    type: Sequelize.INTEGER
+  },
   user_id: {
     type: Sequelize.STRING,
     allowNull: false
