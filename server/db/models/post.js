@@ -2,6 +2,11 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Post = db.define('post', {
+  uuid: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true
+  },
   title: {
     type: Sequelize.TEXT,
     allowNull: false

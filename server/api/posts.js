@@ -50,5 +50,20 @@ router.post('/', (req, res, next) => {
 })
 
 // PUT
+router.put('/', (req, res, next) => {
+  Post.update({
+    title: req.body.title,
+    url: req.body.url,
+    note: req.body.note,
+    tag: req.body.tag,
+    user_id: req.body.user_id
+  }, {
+    where: {
+      
+    }
+  })
+  .then(created => res.json(created))
+  .catch(next);
+})
 
 // DELETE
