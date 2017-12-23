@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Post} = require('../db/models')
+const shortid = require('shortid')
 module.exports = router
 
 // GET all post
@@ -37,8 +38,10 @@ router.get('/:tag', (req, res, next) => {
 })
 
 // POST
+// http://localhost:8080/api/posts/
 router.post('/', (req, res, next) => {
   Post.create({
+    uuid: shortid.generate(),
     title: req.body.title,
     url: req.body.url,
     note: req.body.note,
@@ -50,19 +53,21 @@ router.post('/', (req, res, next) => {
 })
 
 // PUT
-router.put('/', (req, res, next) => {
+// http://localhost:8080/api/posts/:uuid
+router.put('/:uuid', (req, res, next) => {
   Post.update({
     title: req.body.title,
     url: req.body.url,
     note: req.body.note,
     tag: req.body.tag,
+    upvotes: req.body.upvotes,
     user_id: req.body.user_id
   }, {
     where: {
-      
+      uuid: req.params.uuid
     }
   })
-  .then(created => res.json(created))
+  .then(updated => res.json(updated))
   .catch(next);
 })
 
