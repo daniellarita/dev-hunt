@@ -3,7 +3,7 @@ const router = require('express').Router()
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const {User} = require('../db/models')
 module.exports = router
-
+const shortid = require('shortid')
 /**
  * For OAuth keys and other secrets, your Node process will search
  * process.env to find environment variables. On your production server,
@@ -34,7 +34,7 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
     const googleId = profile.id
     const name = profile.displayName
     const email = profile.emails[0].value
-
+    const uuid = shortid.generate()
     User.find({where: {googleId}})
       .then(foundUser => (foundUser
         ? done(null, foundUser)
