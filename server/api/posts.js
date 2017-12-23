@@ -37,6 +37,17 @@ router.get('/:tag', (req, res, next) => {
 })
 
 // POST
+router.post('/', (req, res, next) => {
+  Post.create({
+    title: req.body.title,
+    url: req.body.url,
+    note: req.body.note,
+    tag: req.body.tag,
+    user_id: req.body.user_id
+  })
+  .then(created => res.json(created))
+  .catch(next);
+})
 
 // PUT
 

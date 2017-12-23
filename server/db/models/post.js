@@ -17,7 +17,8 @@ const Post = db.define('post', {
     type: Sequelize.ARRAY(Sequelize.STRING)
   },
   upvotes: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   },
   user_id: {
     type: Sequelize.STRING,
