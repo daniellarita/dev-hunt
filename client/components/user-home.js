@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import GridMenu from './grid-menu/grid-menu'
 
 export const UserHome = (props) => {
   const {email} = props

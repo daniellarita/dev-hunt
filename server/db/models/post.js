@@ -26,8 +26,7 @@ const Post = db.define('post', {
     defaultValue: 0
   },
   user_id: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   }
 })
 
