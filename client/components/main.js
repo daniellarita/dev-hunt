@@ -3,20 +3,16 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../store'
-import GridMenu from './grid-menu/grid-menu'
 
-/**
- * COMPONENT
- *  The Main component is our 'picture frame' - it displays the navbar and anything
- *  else common to our entire app. The 'picture' inside the frame is the space
- *  rendered out by the component's `children`.
- */
+// renders out the Main components children (in routes file)
 const Main = (props) => {
   const {children, handleClick, isLoggedIn} = props
 
   return (
     <div>
-      <h1>DevHunt</h1>
+      <Link to="/">
+        <h1>DevHunt</h1>
+      </Link>
       <nav>
         {
           isLoggedIn

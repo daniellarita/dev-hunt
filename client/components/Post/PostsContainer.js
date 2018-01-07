@@ -19,6 +19,7 @@ function mapDispatchToProps(dispatch) {
 
 export default connect (mapStateToProps, mapDispatchToProps) (
   class extends React.Component {
+    // I was not able to get the handle functions working in the container
     // constructor (props) {
     //   super(props)
     //   this.handleSubmit =  this.handleSubmit.bind(this)

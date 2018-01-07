@@ -1,6 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
+import axios from 'axios'
+import store from '../../store'
+import {addNewPost} from '../../store/post'
 
 class CreatePost extends React.Component {
   state = {
@@ -23,6 +26,7 @@ class CreatePost extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    store.dispatch(addNewPost(this.state))
     console.log(this.state)
   }
 
