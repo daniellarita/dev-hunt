@@ -10,7 +10,7 @@ const Main = (props) => {
 
   return (
     <div>
-      <Link to="/">
+      <Link to="/home">
         <h1>DevHunt</h1>
       </Link>
       <nav>
@@ -18,13 +18,11 @@ const Main = (props) => {
           isLoggedIn
             ? <div>
               {/* The navbar will show these links after you log in */}
-              <Link to="/home">Home</Link>
               <a href="#" onClick={handleClick}>Logout</a>
             </div>
-            : <div>
-              {/* The navbar will show these links before you log in */}
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
+            :
+            <div>
+              <a href="/auth/google">Login with Google</a>
             </div>
         }
         <Link to="/add-resource">Add Resource</Link>

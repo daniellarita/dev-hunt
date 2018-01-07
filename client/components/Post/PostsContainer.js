@@ -37,7 +37,6 @@ export default connect (mapStateToProps, mapDispatchToProps) (
     // }
 
     render() {
-      console.log(this.handleChange,"handle cahnge")
       return (
         <Posts
           {...this.state}

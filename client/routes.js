@@ -22,9 +22,7 @@ class Routes extends Component {
           <Main>
             <Switch>
               {/* Routes placed here are available to all visitors */}
-              <Route path="/test" component={PostsContainer} />
-              <Route path="/login" component={Login} />
-              <Route path="/signup" component={Signup} />
+              <Route path="/add-resource" component={PostsContainer} />
               {
                 isLoggedIn &&
                 <Switch>
