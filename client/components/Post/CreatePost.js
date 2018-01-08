@@ -1,57 +1,29 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {withRouter, Link} from 'react-router-dom'
-import axios from 'axios'
-import store from '../../store'
-import {addNewPost} from '../../store/post'
 
-class CreatePost extends React.Component {
-  state = {
-    title: '',
-    url: '',
-    note: ''
-  }
+export default function (props) {
 
-  handleTitleChange = (e) => {
-    this.setState({title: e.target.value})
-  }
+  const handleSubmit = props.handleSubmit
+  const handleTitleChange = props.handleTitleChange
+  const handleUrlChange = props.handleUrlChange
+  const handleNoteChange = props.handleNoteChange
 
-  handleUrlChange = (e) => {
-    this.setState({url: e.target.value})
-  }
-
-  handleNoteChange = (e) => {
-    this.setState({note: e.target.value})
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    store.dispatch(addNewPost(this.state))
-  }
-
-  render (props) {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-        Title:
-        <input onChange={this.handleTitleChange} type="text" name="title" />
-        </label>
-        <label>
-        URL:
-        <input onChange={this.handleUrlChange} type="text" name="url" />
-        </label>
-        <label>
-        Note:
-        <textarea onChange={this.handleNoteChange} type="text" name="note" />
-        </label>
-        <button type="submit" value="Submit">
-        Submit
-        </button>
-      </form>
-    )
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+      Title:
+      <input onChange={handleTitleChange} type="text" name="title" />
+      </label>
+      <label>
+      URL:
+      <input onChange={handleUrlChange} type="text" name="url" />
+      </label>
+      <label>
+      Note:
+      <textarea onChange={handleNoteChange} type="text" name="note" />
+      </label>
+      <button type="submit" value="Submit">
+      Submit
+      </button>
+    </form>
+  )
 }
-
-// The `withRouter` wrapper makes sure that updates are not blocked
-// when the url changes
-export default withRouter(connect()(CreatePost))

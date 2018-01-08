@@ -4,7 +4,7 @@ import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
 import {Main, Login, Signup, UserHome} from './components'
-import CreatePost from './components/Post/CreatePost'
+import CreatePostContainer from './components/Post/CreatePostContainer'
 import {me} from './store'
 
 class Routes extends Component {
@@ -21,7 +21,7 @@ class Routes extends Component {
           <Main>
             <Switch>
               {/* Routes placed here are available to all visitors */}
-              <Route path="/add-resource" component={CreatePost} />
+              <Route path="/add-resource" component={CreatePostContainer} />
               {
                 isLoggedIn &&
                 <Switch>
