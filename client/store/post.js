@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const ADD_NEW_POST = 'ADD_NEW_POST'
 
-export const receivePosts = posts => ({
-  type: RECEIVE_POSTS,
-  posts
+export const receiveNewPost = post => ({
+  type: ADD_NEW_POST,
+  post
 })
 
 export const addNewPost = post => {
@@ -16,24 +16,21 @@ export const addNewPost = post => {
       })
       .then(res => res.data)
       .then(post => {
-        console.log(getState(),"STATE")
-        const newListOfPosts = getState().post.posts.concat([post])
-        dispatch(receivePosts(newListOfPosts))
-        // hashHistory.push(`/posts/${post.id}`)
+        dispatch(receiveNewPost(post))
       });
   };
 };
 
 const initialState = {
-  posts: []
+  newPost: {}
 }
 
 // reducer
 export default function reducer(state = initialState, action) {
   const newState = Object.assign({}, state)
   switch(action.type) {
-    case RECEIVE_POSTS:
-      newState.posts = action.posts
+    case ADD_NEW_POST:
+      newState.newPost = action.post
       break
     default:
       return state
