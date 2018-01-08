@@ -38,12 +38,12 @@ export default connect (mapStateToProps, mapDispatchToProps) (
 
     render() {
       return (
-        <Posts
-          {...this.state}
-          {...this.props}
+        <div>
+        </div>
+          // {...this.state}
+          // {...this.props}
           // handleChange={this.handleChange}
           // handleSubmit={this.handleSubmit}
-        />
       )
     }
   }

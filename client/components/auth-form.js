@@ -1,3 +1,5 @@
+// This file needs to be removed but I need to confirm all the places it is imported
+
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
