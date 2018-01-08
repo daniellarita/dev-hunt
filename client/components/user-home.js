@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import Posts from './Post/Posts'
 
 export const UserHome = (props) => {
   const {email} = props
@@ -8,6 +9,7 @@ export const UserHome = (props) => {
   return (
     <div>
       <h4>Welcome, {email}</h4>
+      <Posts />
     </div>
   )
 }
