@@ -27,7 +27,6 @@ class CreatePost extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     store.dispatch(addNewPost(this.state))
-    console.log(this.state)
   }
 
   render (props) {
@@ -52,12 +51,6 @@ class CreatePost extends React.Component {
     )
   }
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     post: state.post
-//   }
-// }
 
 // The `withRouter` wrapper makes sure that updates are not blocked
 // when the url changes

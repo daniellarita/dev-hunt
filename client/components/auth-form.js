@@ -1,3 +1,5 @@
+// This file needs to be removed but I need to confirm all the places it is imported
+
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
@@ -8,20 +10,6 @@ const AuthForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email"><small>Email</small></label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password"><small>Password</small></label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
       <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
@@ -62,8 +50,8 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+// export const Login = connect(mapLogin, mapDispatch)(AuthForm)
+// export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
 
 AuthForm.propTypes = {
   name: PropTypes.string.isRequired,
