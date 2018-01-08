@@ -1,12 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Posts from './Posts'
+import { fetchPosts } from '../../store/post'
 
 const mapStateToProps = (state) => {
-  console.log(state, "STTATE")
   return {
     posts: state.post.posts
   }
 }
 
-export default connect(mapStateToProps)(Posts)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPosts () {
+      return dispatch(fetchPosts())
+    }
+  }
+}
+
+export default (connect)(mapStateToProps, mapDispatchToProps)(class extends Component {
+  componentDidMount () {
+    this.props.getPosts()
+  }
+
+  render () {
+    return (
+      <Posts
+       {...this.props}
+      />
+    )
+  }
+})
