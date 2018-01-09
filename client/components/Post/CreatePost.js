@@ -9,21 +9,21 @@ export default function (props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-      Title:
-      <input onChange={handleTitleChange} type="text" name="title" />
-      </label>
-      <label>
-      URL:
-      <input onChange={handleUrlChange} type="text" name="url" />
-      </label>
-      <label>
-      Note:
-      <textarea onChange={handleNoteChange} type="text" name="note" />
-      </label>
-      <button type="submit" value="Submit">
-      Submit
-      </button>
+      <div>
+        <label>Title:</label>
+        <input onChange={handleTitleChange} type="text" name="title" />
+      </div>
+      <div>
+        <label>URL:</label>
+        <input onChange={handleUrlChange} type="text" name="url" />
+      </div>
+      <div>
+        <label>Note:</label>
+        <textarea onChange={handleNoteChange} type="text" name="note" />
+      </div>
+      <div>
+        <button type="submit" value="Submit">Submit</button>
+      </div>
     </form>
   )
 }

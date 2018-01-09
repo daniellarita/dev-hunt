@@ -9,7 +9,7 @@ const Main = (props) => {
   const {children, handleClick, isLoggedIn} = props
 
   return (
-    <div>
+    <div style={{color: '#49fb35'}}>
       <Link to="/home">
         <h1>DevHunt</h1>
       </Link>
