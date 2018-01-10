@@ -22,7 +22,7 @@ export default function (props) {
         <textarea onChange={handleNoteChange} type="text" name="note" />
       </div>
       <div>
-        <button type="submit" value="Submit">Submit</button>
+        <button id="submit" type="submit" value="Submit">Submit</button>
       </div>
     </form>
   )

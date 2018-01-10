@@ -6,9 +6,11 @@ export default function (props) {
     <div>
       { posts.length > 0 ? posts.map(post => {
         return (
-          <div key={post.id}>
-            <h3>{post.title}</h3>
-            <a>{post.url}</a>
+          <div className="post-card" key={post.id}>
+            <div>
+              <button id="upvote">⋀</button><h3 id="post-title">{post.title}</h3>
+            </div>
+            <a href={post.url}>View resource</a>
             <p>{post.note}</p>
           </div>
         )
