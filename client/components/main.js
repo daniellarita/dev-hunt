@@ -17,15 +17,15 @@ const Main = (props) => {
         {
           isLoggedIn
             ? <div>
-              {/* The navbar will show these links after you log in */}
-              <a href="#" onClick={handleClick}>Logout</a>
-            </div>
+                <a href="#" onClick={handleClick}>Logout</a>
+                <br/>
+                <Link to="/add-resource">Add Resource</Link>
+              </div>
             :
             <div>
               <a href="/auth/google">Login with Google</a>
             </div>
         }
-        <Link to="/add-resource">Add Resource</Link>
       </nav>
       <hr />
       {children}

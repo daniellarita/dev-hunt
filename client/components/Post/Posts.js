@@ -8,14 +8,14 @@ export default function (props) {
         return (
           <div className="post-card" key={post.id}>
             <div>
-              <button id="upvote">⋀</button><h3 id="post-title">{post.title}</h3>
+              <button id="upvote">⋀<br/>100</button><h3 id="post-title">{post.title}</h3>
             </div>
             <a href={post.url}>View resource</a>
             <p>{post.note}</p>
           </div>
         )
       }) :
-      <div>Loading...</div>
+      <div></div>
       }
     </div>
   )
