@@ -2,10 +2,12 @@ import axios from 'axios'
 
 export const ADD_NEW_POST = 'ADD_NEW_POST'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const ADD_UPVOTE = 'ADD_UPVOTE'
 
 const initialState = {
   newPost: {},
-  posts: []
+  posts: [],
+  upvoted: {}
 }
 
 export const receiveNewPost = post => ({
@@ -16,6 +18,11 @@ export const receiveNewPost = post => ({
 export const receivePosts = posts => ({
   type: RECEIVE_POSTS,
   posts
+})
+
+export const addUpvote = post => ({
+  type: ADD_UPVOTE,
+  post
 })
 
 export const addNewPost = post => {
@@ -41,6 +48,21 @@ export const fetchPosts = () => {
   }
 }
 
+export const addUpvoteToPost = (post) => {
+  let upvotes = post.upvotes + 1
+  return (dispatch) => {
+    axios.put(`/api/posts/${post.uuid}`,{
+        title: post.title,
+        url: post.url,
+        note: post.note,
+        upvotes: upvotes
+      })
+      .then(res => {
+        dispatch(fetchPosts())
+      })
+  }
+}
+
 // reducer
 export default function reducer(state = initialState, action) {
   const newState = Object.assign({}, state)
@@ -51,6 +73,8 @@ export default function reducer(state = initialState, action) {
     case RECEIVE_POSTS:
       newState.posts = action.posts
       break
+    case ADD_UPVOTE:
+      newstate.upvoted = action.post
     default:
       return state
   }

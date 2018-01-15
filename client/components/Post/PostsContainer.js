@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Posts from './Posts'
 import { fetchPosts } from '../../store/post'
 import { addUpvoteToPost } from '../../store/post'
-import axios from 'axios'
 
 const mapStateToProps = (state) => {
   return {
@@ -17,14 +16,7 @@ const mapDispatchToProps = (dispatch) => {
       return dispatch(fetchPosts())
     },
     handleUpvoteClick (post) {
-      // return dispatch(addUpvoteToPost(post))
-      let upvotes = post.upvotes + 1
-      axios.put(`/api/posts/${post.uuid}`,{
-        title: post.title,
-        url: post.url,
-        note: post.note,
-        upvotes: upvotes
-      })
+      return dispatch(addUpvoteToPost(post))
     }
   }
 }
@@ -35,7 +27,6 @@ export default (connect)(mapStateToProps, mapDispatchToProps)(class extends Comp
   }
 
   handleClick = (post) => {
-    console.log("uuid",post.uuid, "CLICKED")
     this.props.handleUpvoteClick(post)
   }
 

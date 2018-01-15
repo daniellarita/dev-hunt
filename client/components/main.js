@@ -23,7 +23,7 @@ const Main = (props) => {
               </div>
             :
             <div>
-              <a href="/auth/google">Login with Google</a>
+              <a href="/auth/google">Log in with Google</a>
             </div>
         }
       </nav>

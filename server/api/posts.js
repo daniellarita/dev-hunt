@@ -6,7 +6,12 @@ module.exports = router
 // GET all post
 // http://localhost:8080/api/posts
 router.get('/', (req, res, next) => {
-  Post.findAll({})
+  Post.findAll({
+    order: [
+      ['upvotes', 'DESC']
+    ],
+    limit: 2
+  })
   .then(posts => res.json(posts))
   .catch(next)
 })
