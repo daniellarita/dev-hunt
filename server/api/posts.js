@@ -5,12 +5,14 @@ module.exports = router
 
 // GET all post
 // http://localhost:8080/api/posts
-router.get('/', (req, res, next) => {
+router.get('/:pageNumber', (req, res, next) => {
+  const postsPerPage = 2
   Post.findAll({
     order: [
       ['upvotes', 'DESC']
     ],
-    limit: 2
+    offset: (req.params.pageNumber-1)*postsPerPage,
+    limit: postsPerPage,
   })
   .then(posts => res.json(posts))
   .catch(next)

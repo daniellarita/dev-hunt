@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from './index'
 
 export const ADD_NEW_POST = 'ADD_NEW_POST'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
@@ -39,16 +40,16 @@ export const addNewPost = post => {
   }
 }
 
-export const fetchPosts = () => {
+export const fetchPosts = (pageNumber) => {
   return (dispatch) => {
-    return axios.get('/api/posts')
+    return axios.get(`/api/posts/${pageNumber}`)
       .then(res => {
         dispatch(receiveNewPost(res.data))
       })
   }
 }
 
-export const addUpvoteToPost = (post) => {
+export const addUpvoteToPost = (post, pageNumber) => {
   let upvotes = post.upvotes + 1
   return (dispatch) => {
     axios.put(`/api/posts/${post.uuid}`,{
@@ -58,7 +59,7 @@ export const addUpvoteToPost = (post) => {
         upvotes: upvotes
       })
       .then(res => {
-        dispatch(fetchPosts())
+        dispatch(fetchPosts(pageNumber))
       })
   }
 }

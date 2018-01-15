@@ -6,28 +6,29 @@ import { addUpvoteToPost } from '../../store/post'
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.post.posts
+    posts: state.post.posts,
+    pageNumber: state.posts_pagination.pageNumber
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPosts () {
-      return dispatch(fetchPosts())
+    getPosts (pageNumber) {
+      return dispatch(fetchPosts(pageNumber))
     },
-    handleUpvoteClick (post) {
-      return dispatch(addUpvoteToPost(post))
+    handleUpvoteClick (post, pageNumber) {
+      return dispatch(addUpvoteToPost(post, pageNumber))
     }
   }
 }
 
 export default (connect)(mapStateToProps, mapDispatchToProps)(class extends Component {
   componentDidMount () {
-    this.props.getPosts()
+    this.props.getPosts(this.props.pageNumber)
   }
 
-  handleClick = (post) => {
-    this.props.handleUpvoteClick(post)
+  handleClick = (post, pageNumber) => {
+    this.props.handleUpvoteClick(post, this.props.pageNumber)
   }
 
   render () {

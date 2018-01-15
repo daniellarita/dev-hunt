@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import user from './user'
 import post from './post'
+import posts_pagination from './posts_pagination'
 
-const reducer = combineReducers({user, post})
+const reducer = combineReducers({user, post, posts_pagination})
 const middleware = composeWithDevTools(applyMiddleware(
   thunkMiddleware,
   createLogger({collapsed: true})

@@ -1,4 +1,5 @@
 import React from 'react'
+import PagerContainer from '../Pager/PagerContainer'
 
 export default function (props) {
   const posts = props.posts
@@ -19,6 +20,7 @@ export default function (props) {
       }) :
       <div></div>
       }
+      <PagerContainer />
     </div>
   )
 }
