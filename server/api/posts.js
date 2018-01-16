@@ -6,7 +6,7 @@ module.exports = router
 // GET all post
 // http://localhost:8080/api/posts
 router.get('/:pageNumber', (req, res, next) => {
-  const postsPerPage = 2
+  const postsPerPage = 5
   Post.findAll({
     order: [
       ['upvotes', 'DESC']

@@ -6,7 +6,8 @@ import { fetchPosts } from '../../store/post'
 
 const mapStateToProps = (state) => {
   return {
-    pageNumber: state.posts_pagination.pageNumber
+    pageNumber: state.posts_pagination.pageNumber,
+    posts: state.post.posts
   }
 }
 
@@ -24,7 +25,6 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(class extends React.Component {
 
   handleClick = (e) => {
-    console.log(e.target.text)
     this.props.setPage(e.target.text)
     this.props.fetchPosts(e.target.text)
   }
