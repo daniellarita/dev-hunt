@@ -15,7 +15,7 @@ class Pager extends React.Component {
     	)
     }
     return (
-      <Pagination style={{color: 'black', position: 'absolute', top: '0', width: '100%', padding: '100px'}} onClick={(e) => this.props.handleClick(e)} bsSize="small">{items}</Pagination>
+      <Pagination style={{color: 'black', float: 'right', clear: 'left'}} onClick={(e) => this.props.handleClick(e)} bsSize="small">{items}</Pagination>
     )
   }
 }

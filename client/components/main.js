@@ -17,9 +17,8 @@ const Main = (props) => {
         {
           isLoggedIn
             ? <div>
-                <a href="#" onClick={handleClick}>Logout</a>
-                <br/>
-                <Link to="/add-resource">Add Resource</Link>
+                <a href="#" onClick={handleClick}>Logout</a> |
+                <Link to="/add-resource"> Add Resource</Link>
               </div>
             :
             <div>
