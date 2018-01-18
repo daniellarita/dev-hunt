@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import PostsContainer from './Post/PostsContainer'
+import Footer from './Footer'
 
 export const UserHome = (props) => {
   const {email} = props
@@ -10,6 +11,7 @@ export const UserHome = (props) => {
     <div>
       <h4>Welcome, {email}</h4>
       <PostsContainer />
+      <Footer />
     </div>
   )
 }
